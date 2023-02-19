@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HelloMaven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HelloMaven.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HelloMaven.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/A Coding Space/CSC1004/javafx-sdk-19.0.2.1/lib",
+    "last_opened_file_path": "D:/A Coding Space/CSC1004/CSC1004-Java-MovieManagement",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,6 +61,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean javafx:run" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" />
@@ -80,6 +88,7 @@
       <updated>1676090040539</updated>
       <workItem from="1676090042067" duration="1539000" />
       <workItem from="1676105270620" duration="15874000" />
+      <workItem from="1676779850524" duration="7599000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
@@ -108,5 +117,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change HelloMaven" />
     <option name="LAST_COMMIT_MESSAGE" value="Change HelloMaven" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
