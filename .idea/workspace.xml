@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/TestMultithreading.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HelloMaven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HelloMaven.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/A Coding Space/CSC1004/javafx-sdk-19.0.2.1/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676090040539</updated>
       <workItem from="1676090042067" duration="1539000" />
-      <workItem from="1676105270620" duration="8285000" />
+      <workItem from="1676105270620" duration="15874000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
