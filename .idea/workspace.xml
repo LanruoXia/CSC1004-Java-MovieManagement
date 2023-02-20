@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HelloMaven.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,13 +64,18 @@
       <command value="mvn clean javafx:run" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar">
     <configuration name="CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
         <item itemvalue="JAR Application.CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
@@ -88,7 +90,7 @@
       <updated>1676090040539</updated>
       <workItem from="1676090042067" duration="1539000" />
       <workItem from="1676105270620" duration="15874000" />
-      <workItem from="1676779850524" duration="7599000" />
+      <workItem from="1676779850524" duration="12861000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
@@ -97,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676107752962</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Javafx Dependencies and plugin to pom&#10;Change HelloMaven: Add Javafx&#10;Create image directory">
+      <created>1676793014003</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676793014003</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,14 +125,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change HelloMaven" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change HelloMaven" />
+    <MESSAGE value="Add Javafx Dependencies and plugin to pom&#10;Change HelloMaven: Add Javafx&#10;Create image directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Javafx Dependencies and plugin to pom&#10;Change HelloMaven: Add Javafx&#10;Create image directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java</url>
-          <line>9</line>
+          <line>13</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
