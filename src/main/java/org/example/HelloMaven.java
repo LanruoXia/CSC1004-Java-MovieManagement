@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.sql.SQLOutput;
 
@@ -41,6 +42,8 @@ public class HelloMaven extends Application{
                 System.out.println("Current Width = " + t1.doubleValue());
             }
         });
+        primaryStage.setOpacity(0.8);
+        primaryStage.initStyle(StageStyle.UNIFIED);
 
         primaryStage.setScene(new Scene(new Group()));// Scene 必须有
         primaryStage.show();
