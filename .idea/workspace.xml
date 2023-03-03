@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_18_06_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_18_06__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_18_08_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_2_14_18_08__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/image/Login2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/image/Login3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/image/MovieCan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/image/login4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/image/padlock2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/HelloMaven.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/image/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/wifi.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/image/wifi.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -46,36 +52,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/A Coding Space/CSC1004/CSC1004-Java-MovieManagement&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/A Coding Space/CSC1004/demo1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\A Coding Space\CSC1004\CSC1004-Java-MovieManagement\src\main\java\org\example" />
+      <recent name="D:\A Coding Space\CSC1004\CSC1004-Java-MovieManagement\src\image" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean install" />
       <command value="mvn clean javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar">
+  <component name="RunManager">
     <configuration name="CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" />
       <method v="2" />
@@ -87,7 +100,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.CSC1004-Java-ChatRoom-1.0-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -103,6 +115,10 @@
       <workItem from="1676105270620" duration="15874000" />
       <workItem from="1676779850524" duration="20549000" />
       <workItem from="1677053699370" duration="4866000" />
+      <workItem from="1677546722332" duration="3824000" />
+      <workItem from="1677574168282" duration="352000" />
+      <workItem from="1677578513030" duration="3127000" />
+      <workItem from="1677585003420" duration="12228000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
@@ -132,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676879649191</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Main&#10;Try JavaAwt">
+      <created>1677546971328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677546971329</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add JavaAwt">
+      <created>1677547128565</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677547128565</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +184,9 @@
     <MESSAGE value="Add Javafx Dependencies and plugin to pom&#10;Change HelloMaven: Add Javafx&#10;Create image directory" />
     <MESSAGE value="Add Javafx Dependencies and plugin to pom&#10;Change HelloMaven: Add Javafx" />
     <MESSAGE value="Add image directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add image directory" />
+    <MESSAGE value="Add Main&#10;Try JavaAwt" />
+    <MESSAGE value="Add JavaAwt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add JavaAwt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -166,5 +198,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

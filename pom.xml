@@ -60,7 +60,6 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>HelloMaven</mainClass>
-                            <mainClass>TestMultithreading</mainClass>//?
                         </manifest>
                     </archive>
                 </configuration>
