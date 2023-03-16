@@ -20,6 +20,7 @@ public class Main extends Application{
     public void start(Stage stage) throws Exception {
         Main.stage = stage;
         stage.setTitle("MovieCan");
+
         changeView("view/login.fxml");
         stage.show();
     }
