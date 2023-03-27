@@ -25,15 +25,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 CREATE TABLE `useraccounts` (
                                 `idUserAccounts` int unsigned NOT NULL AUTO_INCREMENT,
                                 `Username` varchar(45) NOT NULL,
+                                `Age` varchar(45) NOT NULL,
                                 `Password` varchar(45) NOT NULL,
                                 PRIMARY KEY (`idUserAccounts`),
                                 UNIQUE KEY `idUserAccounts_UNIQUE` (`idUserAccounts`),
                                 UNIQUE KEY `Username_UNIQUE` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 BEGIN;
-INSERT INTO useraccounts (username, password) VALUES ('hey', 123);
-INSERT INTO useraccounts (username, password) VALUES ('hi', 456);
+INSERT INTO useraccounts (username, Age, password) VALUES ('hey', 19, 123);
+INSERT INTO useraccounts (username, Age, password) VALUES ('hi', 18,  456);
 COMMIT;
 -- ----------------------------
 -- View structure for userreview

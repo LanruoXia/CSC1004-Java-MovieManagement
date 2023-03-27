@@ -5,12 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.controller.loginController;
 
 import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 
 public class Main extends Application{
-    private static Stage stage;
+    static Stage stage;
     public static void main(String[] args){
         launch(args);
     }
@@ -36,4 +37,6 @@ public class Main extends Application{
         }
 
     }
+
+
 }

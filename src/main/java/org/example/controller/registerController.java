@@ -1,0 +1,121 @@
+package org.example.controller;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import org.example.utils.JdbcUtils;
+import org.example.utils.StringUtil;
+import org.example.utils.ViewUtils;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class registerController {
+
+    @FXML
+    private Label signupInfo;
+
+    @FXML
+    private Label passwordInfo;
+
+    @FXML
+    private TextField setUsername;
+
+    @FXML
+    private Label usernameInfo;
+
+    @FXML
+    private TextField setAge;
+
+    @FXML
+    private PasswordField setPassword;
+
+    @FXML
+    private PasswordField confirmPassword;
+
+
+    @FXML
+    private Button closeButton;
+
+
+    public void handleRegister() {
+
+        checkUsername();
+
+        if (!StringUtil.isEmpty(setUsername.getText()) && !StringUtil.isEmpty(setAge.getText()) && !StringUtil.isEmpty(setPassword.getText())) {
+            if (confirmPassword.getText().equals(setPassword.getText())) {
+                setAccount();
+            } else {
+                passwordInfo.setText("Password does not match!");
+                passwordInfo.setVisible(true);
+            }
+        } else {
+            passwordInfo.setText("Please fill in all the information.");
+            passwordInfo.setVisible(true);
+
+        }
+
+    }
+
+    public void handleClose() {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+        ViewUtils.openView("view/login.fxml");
+    }
+
+    public void setAccount() {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        Connection dbConn = jdbcUtils.getConnection();
+        String username = setUsername.getText();
+        String age = setAge.getText();
+        String password = confirmPassword.getText();
+
+//        String insertFields = "INSERT INTO movieadmin.useraccounts (Username, Age, Password) VALUES ('";
+//        String insertValues = username + "','" + age + "','" + password + "')";
+//        String insertNewUser = insertFields + insertValues;
+        String insertNewUser = "INSERT INTO movieadmin.useraccounts (Username, Age, Password) VALUES ('" + username + "','" + age + "','" + password + "')";
+
+        try {
+            Statement statement = dbConn.createStatement();
+            statement.execute(insertNewUser);
+            passwordInfo.setVisible(false);
+            signupInfo.setText("Signed up successfully!");
+            signupInfo.setVisible(true);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+
+
+    }
+
+    public void checkUsername() {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        Connection dbConn = jdbcUtils.getConnection();
+        String username = setUsername.getText();
+        String verify = "SELECT EXISTS(SELECT 1 FROM movieadmin.useraccounts WHERE Username = '"+username+"')";
+
+        try {
+            System.out.println(1111);
+            Statement statement = dbConn.createStatement();
+            ResultSet result = statement.executeQuery(verify);
+            while (result.next()) {
+                if (result.getInt(1) == 1) {
+                    usernameInfo.setText("This username has already been taken.");
+                    usernameInfo.setVisible(true);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+}
+
+

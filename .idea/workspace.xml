@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/registerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ViewUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/register.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/movieAdmin.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/movieAdmin.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="module-info" />
+        <option value="Kotlin Class" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -48,7 +55,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/A Coding Space/CSC1004/CSC1004-Java-MovieManagement/src/main/java/org/example/database",
@@ -93,7 +99,7 @@
       <command value="mvn clean cache" />
     </option>
   </component>
-  <component name="RunManager" selected="Database Script.movieAdmin.sql">
+  <component name="RunManager" selected="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="CSC1004-Java-MovieManagement" />
@@ -145,10 +151,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.movieAdmin.sql" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main2" />
+        <item itemvalue="Database Script.movieAdmin.sql" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestController" />
       </list>
     </recent_temporary>
@@ -175,7 +181,7 @@
       <workItem from="1678704080545" duration="1063000" />
       <workItem from="1678777243802" duration="12553000" />
       <workItem from="1679124812423" duration="5316000" />
-      <workItem from="1679382779651" duration="11671000" />
+      <workItem from="1679382779651" duration="24990000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
@@ -247,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679130699968</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="connected the database movieadmin to the system&#10;added sql file&#10;inserted some data">
+      <created>1679562778589</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679562778589</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add missing files">
+      <created>1679563003632</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679563003632</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +295,9 @@
     <MESSAGE value="Organize the project structure&#10;finish some functions of the login window" />
     <MESSAGE value="commit" />
     <MESSAGE value="Try to add database movieadmin to the project &#10;Haven't succeeded yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to add database movieadmin to the project &#10;Haven't succeeded yet" />
+    <MESSAGE value="connected the database movieadmin to the system&#10;added sql file&#10;inserted some data" />
+    <MESSAGE value="add missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add missing files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -292,7 +314,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>68</line>
+          <line>85</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

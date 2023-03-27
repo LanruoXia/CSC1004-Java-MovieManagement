@@ -59,7 +59,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>HelloMaven</mainClass>
+                            <mainClass>Main2</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -39,13 +39,18 @@
             <PasswordField fx:id="password" layoutX="144.0" layoutY="169.0" />
             <Button fx:id="loginButton" layoutX="29.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="25.0" prefWidth="277.0" text="Login" />
             <Button fx:id="cancelButton" layoutX="29.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="277.0" text="Cancel" />
-            <Label fx:id="errorInfo" contentDisplay="CENTER" layoutX="29.0" layoutY="240.0" prefHeight="17.0" prefWidth="276.0" visible="false" />
+            <Label fx:id="infoLabel" contentDisplay="CENTER" layoutX="29.0" layoutY="240.0" prefHeight="17.0" prefWidth="276.0" visible="false" />
             <Label layoutX="89.0" layoutY="56.0" text="MovieCan" textAlignment="CENTER">
                <font>
                   <Font name="Arial Italic" size="30.0" />
                </font>
             </Label>
             <CheckBox fx:id="isAdmin" layoutX="128.0" layoutY="209.0" mnemonicParsing="false" text="I'm admin" />
+            <Label fx:id="signUp" layoutX="29.0" layoutY="339.0" onMouseClicked="#creatRegistration" prefHeight="17.0" prefWidth="154.0" text="New here? Click to sign up!" underline="true">
+               <font>
+                  <Font name="Arial Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </right>
