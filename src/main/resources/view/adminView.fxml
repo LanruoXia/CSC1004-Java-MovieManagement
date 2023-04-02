@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1200.0" styleClass="white_background" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.adminViewController">
+   <left>
+      <VBox prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="101.0" prefWidth="204.0">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/MovieIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="126.0" text="MovieCan">
+                     <font>
+                        <Font name="Broadway" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox onMouseClicked="#closeStage" prefHeight="126.0" prefWidth="248.0">
+               <children>
+                  <ImageView fitHeight="79.0" fitWidth="100.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user-cog1.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="75.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="241.0" text="Administrator">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="226.0" text="\@Admin" />
+               </children>
+            </VBox>
+            <HBox fx:id="btnAdmin" alignment="CENTER" prefHeight="54.0" prefWidth="248.0" spacing="10.0" styleClass="white_background" stylesheets="@../css/Style.css">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/admininfo.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="137.0" text="Admin Accounts">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnUsers" alignment="CENTER" onMouseClicked="#clickUser" prefHeight="54.0" prefWidth="292.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/users.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="137.0" text="User Profiles">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnRepo" alignment="CENTER" onMouseClicked="#clickRepo" prefHeight="54.0" prefWidth="248.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/movierepo.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="137.0" text="Movie Repository">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnStats" alignment="CENTER" prefHeight="54.0" prefWidth="248.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/statbar.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="137.0" text="Statistics">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnSignOut" alignment="CENTER" onMouseClicked="#clickSignOut" prefHeight="54.0" prefWidth="248.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/signout.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="137.0" text="Sign Out">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <StackPane stylesheets="@../css/Style.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="paneStats" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane fx:id="paneSignOut" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane fx:id="paneAdmin" prefHeight="570.0" prefWidth="616.0" />
+            <AnchorPane fx:id="paneRepo" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="white_background" stylesheets="@../css/Style.css" />
+            <AnchorPane fx:id="paneUsers" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                  <VBox prefHeight="720.0" prefWidth="950.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="616.0" />
+                        <TableView fx:id="userTableView" prefHeight="620.0" prefWidth="616.0" stylesheets="@../css/Style.css">
+                          <columns>
+                            <TableColumn fx:id="idColumn" prefWidth="57.0" text="ID" />
+                            <TableColumn fx:id="usernameColumn" prefWidth="178.0" text="Username" />
+                              <TableColumn fx:id="ageColumn" prefWidth="97.0" text="Age" />
+                              <TableColumn fx:id="genderColumn" prefWidth="151.0" text="Gender" />
+                              <TableColumn fx:id="addressColumn" prefWidth="280.0" text="Address" />
+                              <TableColumn fx:id="passwordColumn" prefWidth="198.0" text="Password" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

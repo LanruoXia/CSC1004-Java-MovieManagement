@@ -1,0 +1,19 @@
+.white_background{
+    -fx-background-color: #fff;
+}
+
+.table-view {
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+}
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: #696784;
+}

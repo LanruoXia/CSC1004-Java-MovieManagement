@@ -1,19 +1,16 @@
 package org.example.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.example.utils.JdbcUtils;
 import org.example.utils.StringUtil;
 import org.example.utils.ViewUtils;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.concurrent.TimeUnit;
 
 //import org.example.utils.*;
 
@@ -42,7 +39,7 @@ public class loginController {
     }
 
     @FXML
-    public void handleLogin() {
+    public void handleLogin() throws InterruptedException {
 //        JdbcUtils jdbcUtils = new JdbcUtils();
 //        jdbcUtils.getConnection();
         String passwordText = password.getText();
@@ -61,12 +58,15 @@ public class loginController {
             infoLabel.setVisible(true);
             return;
         }
-        if (accountText.equals("admin") && passwordText.equals("admin") && isAdmin.isSelected()) {
+        if (accountText.equals("1") && passwordText.equals("1") && isAdmin.isSelected()) {
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             System.out.println("admin enters");
             infoLabel.setText("Welcome, admin");
             infoLabel.setVisible(true);
+            TimeUnit.SECONDS.sleep(1);
+            enterAdminView();
+
         }
 //        }else {
 //            errorInfo.setText("invalid username/password");
@@ -109,9 +109,14 @@ public class loginController {
     }
 
     public void creatRegistration() {
-            handleCancel();
+        handleCancel();
         ViewUtils.openView("view/register.fxml");
 
+    }
+
+    public void enterAdminView(){
+        handleCancel();
+        ViewUtils.openView("view/adminView.fxml");
     }
 }
 

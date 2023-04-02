@@ -41,6 +41,11 @@
             <artifactId>controlsfx</artifactId>
             <version>11.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.2</version>
+        </dependency>
     </dependencies>
 
     <build>

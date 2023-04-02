@@ -1,19 +1,19 @@
 package org.example.controller;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.example.utils.JdbcUtils;
 import org.example.utils.StringUtil;
 import org.example.utils.ViewUtils;
 
-import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-public class registerController {
+import java.util.ResourceBundle;
+
+public class registerController  implements Initializable {
 
     @FXML
     private Label signupInfo;
@@ -31,6 +31,14 @@ public class registerController {
     private TextField setAge;
 
     @FXML
+    private ChoiceBox<String> genderChoice;
+
+    private String[] gender = {"Female", "Male", "Nonbinary"};
+
+    @FXML
+    private TextField setAddress;
+
+    @FXML
     private PasswordField setPassword;
 
     @FXML
@@ -41,11 +49,11 @@ public class registerController {
     private Button closeButton;
 
 
-    public void handleRegister() {
+    public void handleRegister(){
 
         checkUsername();
 
-        if (!StringUtil.isEmpty(setUsername.getText()) && !StringUtil.isEmpty(setAge.getText()) && !StringUtil.isEmpty(setPassword.getText())) {
+        if (!StringUtil.isEmpty(setUsername.getText()) && !StringUtil.isEmpty(setAge.getText()) && !StringUtil.isEmpty(genderChoice.getValue()) && !StringUtil.isEmpty(setAddress.getText())&& !StringUtil.isEmpty(setPassword.getText())) {
             if (confirmPassword.getText().equals(setPassword.getText())) {
                 setAccount();
             } else {
@@ -71,16 +79,17 @@ public class registerController {
         Connection dbConn = jdbcUtils.getConnection();
         String username = setUsername.getText();
         String age = setAge.getText();
+        String gender = genderChoice.getValue();
+        String address = setAddress.getText();
         String password = confirmPassword.getText();
 
 //        String insertFields = "INSERT INTO movieadmin.useraccounts (Username, Age, Password) VALUES ('";
 //        String insertValues = username + "','" + age + "','" + password + "')";
 //        String insertNewUser = insertFields + insertValues;
-        String insertNewUser = "INSERT INTO movieadmin.useraccounts (Username, Age, Password) VALUES ('" + username + "','" + age + "','" + password + "')";
+        String insertNewUser = "INSERT INTO movieadmin.useraccounts (username, password, age, gender, address) VALUES ('" + username + "','" + password + "','" + age + "','" + gender + "','" + address + "')";
 
         try {
-            Statement statement = dbConn.createStatement();
-            statement.execute(insertNewUser);
+            jdbcUtils.executeQueryStmt(insertNewUser);
             passwordInfo.setVisible(false);
             signupInfo.setText("Signed up successfully!");
             signupInfo.setVisible(true);
@@ -97,12 +106,14 @@ public class registerController {
         JdbcUtils jdbcUtils = new JdbcUtils();
         Connection dbConn = jdbcUtils.getConnection();
         String username = setUsername.getText();
-        String verify = "SELECT EXISTS(SELECT 1 FROM movieadmin.useraccounts WHERE Username = '"+username+"')";
+        String verify = "SELECT EXISTS(SELECT 1 FROM movieadmin.useraccounts WHERE username = '"+username+"')";
 
         try {
-            System.out.println(1111);
-            Statement statement = dbConn.createStatement();
-            ResultSet result = statement.executeQuery(verify);
+//            System.out.println(1111);
+//            Statement statement = dbConn.createStatement();
+//            ResultSet result = statement.executeQuery(verify);
+
+            ResultSet result = JdbcUtils.getQueryResult(verify);
             while (result.next()) {
                 if (result.getInt(1) == 1) {
                     usernameInfo.setText("This username has already been taken.");
@@ -114,6 +125,12 @@ public class registerController {
             e.printStackTrace();
 
         }
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        genderChoice.getItems().addAll(gender);
 
     }
 }

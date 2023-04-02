@@ -33,6 +33,21 @@ public class JdbcUtils {
         return connection;
 
     }
+    public static ResultSet getQueryResult(String stmt) throws SQLException {
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        Connection dbConn = jdbcUtils.getConnection();
+        Statement statement = dbConn.createStatement();
+        ResultSet result = statement.executeQuery(stmt);
+        return result;
+    }
+    public static boolean executeQueryStmt(String stmt) throws SQLException{
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        Connection dbConn = jdbcUtils.getConnection();
+        Statement statement = dbConn.createStatement();
+        return statement.execute(stmt);
+
+    }
+
 
 
 }
