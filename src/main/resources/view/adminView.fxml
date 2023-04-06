@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -146,7 +153,6 @@
             <AnchorPane fx:id="paneStats" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane fx:id="paneSignOut" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane fx:id="paneAdmin" prefHeight="570.0" prefWidth="616.0" />
-            <AnchorPane fx:id="paneRepo" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="white_background" stylesheets="@../css/Style.css" />
             <AnchorPane fx:id="paneUsers" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
                <children>
                   <VBox prefHeight="720.0" prefWidth="950.0">
@@ -164,6 +170,113 @@
                         </TableView>
                      </children>
                   </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneRepo" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="white_background" stylesheets="@../css/Style.css">
+               <children>
+                  <StackPane layoutY="70.0">
+                     <children>
+                        <AnchorPane fx:id="addMoviePane" prefHeight="200.0" prefWidth="200.0" styleClass="white_background" stylesheets="@../css/movieRepo.css">
+                           <children>
+                              <ImageView fx:id="movieImage" fitHeight="293.0" fitWidth="221.0" layoutX="93.0" layoutY="91.0" pickOnBounds="true" />
+                              <GridPane layoutX="503.0" layoutY="42.0" prefHeight="419.0" prefWidth="362.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="221.0" text="Movie Name" />
+                                    <TextField fx:id="nameText" GridPane.columnIndex="1" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="221.0" text="Genre" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="221.0" text="Release Year" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="221.0" text="Directory" GridPane.rowIndex="4" />
+                                    <TextField fx:id="yearText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="directorText" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="221.0" text="Country" GridPane.rowIndex="3" />
+                                    <TextField fx:id="countryText" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ChoiceBox fx:id="genreChoice" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #E9E9E9;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <Button fx:id="confirmAdd" layoutX="562.0" layoutY="520.0" mnemonicParsing="false" onAction="#setNewMovie" prefHeight="25.0" prefWidth="129.0" stylesheets="@../css/Style.css" text="Add This Movie" />
+                              <Button fx:id="cancelAdd" layoutX="733.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleCancelAdd" prefHeight="25.0" prefWidth="132.0" stylesheets="@../css/Style.css" text="Cancel" />
+                              <Button fx:id="addPoster" layoutX="97.0" layoutY="422.0" mnemonicParsing="false" onAction="#addNewPoster" prefHeight="25.0" prefWidth="213.0" stylesheets="@../css/Style.css" text="Add Movie Poster Image" />
+                              <Label fx:id="addMovieInfo" layoutX="562.0" layoutY="470.0" prefHeight="17.0" prefWidth="378.0" text="Please fill in all the information!" textFill="#bf0808" visible="false" />
+                           </children>
+                        </AnchorPane>
+                        <GridPane fx:id="repoGrid" prefHeight="650.0" prefWidth="950.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="239.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="785.0" minWidth="10.0" prefWidth="711.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TableView fx:id="repoTableView" onMouseClicked="#getItem" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/movieRepo.css">
+                                <columns>
+                                  <TableColumn fx:id="movieIdColumn" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="movieNameColumn" prefWidth="162.0" text="Movie" />
+                                </columns>
+                              </TableView>
+                              <VBox fx:id="repoVBox" prefHeight="200.0" prefWidth="100.0" styleClass="white_background" stylesheets="@../css/Style.css" GridPane.columnIndex="1">
+                                 <children>
+                                    <Button fx:id="btnDeleteMovie" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Delete this movie" />
+                                    <ImageView fx:id="repoImage" fitHeight="281.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets left="250.0" top="30.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <ScrollPane prefHeight="350.0" prefWidth="711.0" styleClass="white_background" stylesheets="@../css/Style.css">
+                                       <content>
+                                          <GridPane prefHeight="374.0" prefWidth="711.0" styleClass="white_background" stylesheets="@../css/Style.css">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="388.0" text="Movie Name" GridPane.rowIndex="1" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="367.0" text="Genre" GridPane.rowIndex="2" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="391.0" text="Release Year" GridPane.rowIndex="3" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="404.0" text="Director" GridPane.rowIndex="5" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="373.0" text="Rating" GridPane.rowIndex="6" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="373.0" text="Movie Id" />
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="391.0" text="Counntry" GridPane.rowIndex="4" />
+                                                <Label fx:id="repoIdLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" />
+                                                <Label fx:id="repoMovieLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="repoGenreLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="repoYearLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label fx:id="repoCoLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Label fx:id="repoDireLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="repoRatingLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <Button fx:id="addNew" layoutX="689.0" layoutY="45.0" mnemonicParsing="false" onAction="#ClickAddNew" prefHeight="25.0" prefWidth="173.0" stylesheets="@../css/Style.css" text="Add New Movie" />
                </children>
             </AnchorPane>
          </children>

@@ -20,7 +20,7 @@
       </HBox>
       <HBox prefHeight="61.0" prefWidth="403.0" spacing="30.0" style="-fx-background-color: #fff;">
          <children>
-            <Button fx:id="btnCancel" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #fff;" styleClass="white_background" stylesheets="@../css/Style.css" text="Cancel" textFill="#696784">
+            <Button fx:id="btnCancel" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #fff; -fx-text-fill: #696784;" text="Cancel" textFill="#696784">
                <HBox.margin>
                   <Insets left="150.0" />
                </HBox.margin>
@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnSignOut" alignment="CENTER" mnemonicParsing="false" onAction="#signOut" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #fff;" styleClass="white_background" stylesheets="@../css/Style.css" text="Sign Out" />
+            <Button fx:id="btnSignOut" alignment="CENTER" mnemonicParsing="false" onAction="#signOut" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #fff; -fx-text-fill: #000000;" text="Sign Out" />
          </children>
       </HBox>
    </children>

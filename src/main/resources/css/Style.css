@@ -16,4 +16,12 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-background-color: #696784;
+
+}
+.button{
+    -fx-text-fill: white;
+    -fx-background-color: #696784;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+
 }

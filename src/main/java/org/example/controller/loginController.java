@@ -117,6 +117,7 @@ public class loginController {
     public void enterAdminView(){
         handleCancel();
         ViewUtils.openView("view/adminView.fxml");
+        adminViewController adminView = new adminViewController();// What's wrong?
     }
 }
 

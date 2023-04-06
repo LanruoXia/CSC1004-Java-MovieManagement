@@ -6,6 +6,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
 
 public class User {
     private IntegerProperty id;
@@ -15,7 +16,15 @@ public class User {
     private StringProperty address;
     private IntegerProperty password;
 
+    private Image poster;
 
+    public Image getPoster() {
+        return poster;
+    }
+
+    public void setPoster(Image poster) {
+        this.poster = poster;
+    }
 
     public User(){
         this.id = new SimpleIntegerProperty();
