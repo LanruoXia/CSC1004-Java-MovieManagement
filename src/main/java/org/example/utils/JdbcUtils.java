@@ -46,7 +46,7 @@ public class JdbcUtils {
         }
         return null;
     }
-    public static boolean executeQueryStmt(String stmt) throws SQLException{
+    public boolean executeQueryStmt(String stmt) throws SQLException{
 
         try {
 

@@ -1,6 +1,9 @@
 package org.example.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.example.utils.JdbcUtils;
@@ -62,6 +65,7 @@ public class loginController {
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             System.out.println("admin enters");
+            //TODO tackle problem: text won't show
             infoLabel.setText("Welcome, admin");
             infoLabel.setVisible(true);
             TimeUnit.SECONDS.sleep(1);
@@ -88,6 +92,21 @@ public class loginController {
                 if (result.getInt(1) == 1) {
                     infoLabel.setText("Welcome!");
                     infoLabel.setVisible(true);
+                    TimeUnit.SECONDS.sleep(2);
+                    handleCancel();
+                    Parent root = null;
+                    FXMLLoader loader = new FXMLLoader(loginController.class.getResource("/view/userView.fxml"));
+                    root = loader.load();
+                    userViewController userViewController1 = loader.getController();
+                    Stage newStage = new Stage();
+                    newStage.setScene(new Scene(root));
+                    newStage.show();
+//                    root = FXMLLoader.load(loginController.class.getClassLoader().getResource("view/userView.fxml"));
+//                    Stage newStage = new Stage();
+//                    newStage.setScene(new Scene(root));
+//                    newStage.show();
+                    userViewController1.setName(username.getText());
+
 
                 } else {
                     infoLabel.setText("Invalid login. Please try again!");
@@ -118,6 +137,11 @@ public class loginController {
         handleCancel();
         ViewUtils.openView("view/adminView.fxml");
         adminViewController adminView = new adminViewController();// What's wrong?
+    }
+
+    public void enterUserView(){
+        handleCancel();
+        ViewUtils.openView("view/userView.fxml");
     }
 }
 

@@ -51,6 +51,8 @@ public class popUpWindow {
         originalName = fileName;
     }
 
+
+
     public void renamePoster(){
         if(originalName.contains(".jpg")){
             imageFormat.setText(".jpg");
@@ -62,6 +64,7 @@ public class popUpWindow {
         System.out.println(imageText.getText());
         adminViewController.getImageName(name);
         System.out.println(name);
+        closeRename();
 
     }
     public void closeRename(){

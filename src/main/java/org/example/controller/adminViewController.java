@@ -3,6 +3,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.example.models.ModelList;
 import org.example.models.Movie;
 import org.example.models.User;
 import org.example.utils.JdbcUtils;
@@ -21,6 +23,7 @@ import org.example.utils.StringUtil;
 import org.example.utils.ViewUtils;
 
 import javax.imageio.ImageIO;
+import javax.management.modelmbean.ModelMBean;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -162,6 +165,13 @@ public class adminViewController implements Initializable {
     @FXML
     private Button btnDeleteButton;
 
+    @FXML
+    private TextArea introText;
+
+    @FXML
+    private TextArea repoIntroText;
+
+    private ModelList modelList = new ModelList();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Image imagedash = new Image("images/dashframe.png");
@@ -187,15 +197,9 @@ public class adminViewController implements Initializable {
         movieIdColumn.setCellValueFactory(new PropertyValueFactory<Movie, Integer>("id"));
         movieNameColumn.setCellValueFactory(new PropertyValueFactory<Movie, String>("nameWithYear"));
         //load data
-        try {
-            refreshRepoList();
-            repoTableView.setItems(movies);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        //load repoVBOX
-
+        modelList.loadMovies();
+        repoTableView.setItems(modelList.getMovieModelList());
+        repoTableView.getSelectionModel().selectFirst();
 
 
 
@@ -217,34 +221,45 @@ public class adminViewController implements Initializable {
         }
 
     }
-    private ObservableList<Movie> movies = FXCollections.observableArrayList();
-    public void refreshRepoList() throws SQLException {
-        ResultSet rs = JdbcUtils.getQueryResult("SELECT * FROM movieadmin.movie_repo");
-        movies.clear();
-//        ResultSetMetaData metaData = rs.getMetaData();
-//        try {
-//            List<Movie> rawData = jdbcUtils.findMoreProResult(sql, params, Magazine.class);
-//            magazinesData.addAll(rawData);
-//            magazineTable.setItems(magazinesData);
-//        } catch (Exception e) {
-//            e.printStackTrace();
+//    private ObservableList<Movie> movies = FXCollections.observableArrayList();
+//    public void refreshRepoList() throws SQLException {
+//        ResultSet rs = JdbcUtils.getQueryResult("SELECT * FROM movieadmin.movie_repo");
+//        movies.clear();
+////        ResultSetMetaData metaData = rs.getMetaData();
+////        try {
+////            List<Movie> rawData = jdbcUtils.findMoreProResult(sql, params, Magazine.class);
+////            magazinesData.addAll(rawData);
+////            magazineTable.setItems(magazinesData);
+////        } catch (Exception e) {
+////            e.printStackTrace();
+////        }
+//        while (rs.next()){
+//            Movie newmovie = new Movie();
+//            System.out.println(rs.getInt("idmovies"));
+//            newmovie.setId(rs.getInt("idmovies"));
+//            newmovie.setName(rs.getString("name"));
+//            newmovie.setPoster_path(rs.getString("poster_path"));
+//            newmovie.setYear(Integer.parseInt(rs.getString("year")));
+//            newmovie.setNameWithYear(rs.getString("name") + " (" + rs.getString("year") + ")");
+//            movies.add(newmovie);
 //        }
-        while (rs.next()){
-            Movie newmovie = new Movie();
-            System.out.println(rs.getInt("idmovies"));
-            newmovie.setId(rs.getInt("idmovies"));
-            newmovie.setName(rs.getString("name"));
-            newmovie.setPoster_path(rs.getString("poster_path"));
-            newmovie.setYear(Integer.parseInt(rs.getString("year")));
-            newmovie.setNameWithYear(rs.getString("name") + " (" + rs.getString("year") + ")");
-            movies.add(newmovie);
-        }
-        repoTableView.setItems(movies);
+//        repoTableView.setItems(movies);
+//
+//    }
 
-    }
-
+    @FXML
     public void deleteMovie(){
         Movie selected = repoTableView.getSelectionModel().getSelectedItem();
+        modelList.delete(selected);
+        String name = selected.getName();
+        String year = Integer.toString(selected.getYear());
+        JdbcUtils jdbcUtils = new JdbcUtils();
+        String delete = "DELETE FROM movieadmin.movie_repo WHERE name = \"" + name + "\" and year =\"" + year +"\"";
+        try {
+            jdbcUtils.executeQueryStmt(delete);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -254,6 +269,7 @@ public class adminViewController implements Initializable {
     public void getItem(javafx.scene.input.MouseEvent mouseEvent) {
         System.out.println("selected");
         Movie selectedMovie = repoTableView.getSelectionModel().getSelectedItem();
+//        repoTableView.getSelectionModel().selectFirst();
         JdbcUtils jdbcUtils = new JdbcUtils();
         Connection dbConn = jdbcUtils.getConnection();
         if(selectedMovie != null){
@@ -267,6 +283,7 @@ public class adminViewController implements Initializable {
 //                ResultSet rs = JdbcUtils.getQueryResult("select * from movieadmin.movie_repo");
                 Statement statement = dbConn.createStatement();
                 rs.next();
+                // TODO cannot load the following data right after adding a new movie
                 Image image = new Image(rs.getString("poster_path"));
                 repoImage.setImage(image);
                 repoMovieLabel.setText(rs.getString("name"));
@@ -275,6 +292,18 @@ public class adminViewController implements Initializable {
                 repoYearLabel.setText(rs.getString("year"));
                 repoCoLabel.setText(rs.getString("country"));
                 repoDireLabel.setText(rs.getString("director"));
+                repoIntroText.setText(rs.getString("introduction"));
+                repoIntroText.setPrefRowCount(10);
+                repoIntroText.setPrefColumnCount(100);
+                repoIntroText.setWrapText(true);
+                repoIntroText.setPrefWidth(140);
+                repoIntroText.setEditable(false);
+                rs.getString("rating");
+                if(!rs.wasNull()){
+                    repoRatingLabel.setText(rs.getString("rating"));
+                }else{
+                    repoRatingLabel.setText("No rating yet");
+                }
 //                repoRatingLabel
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -357,7 +386,8 @@ public class adminViewController implements Initializable {
             fileName = imageFile.getName();
             //savePoster(fileName);
             System.out.println(System.getProperty("user.dir"));
-            popUpWindow.getOriginalName(fileName);
+            popUpWindow pop = new popUpWindow();
+            pop.getOriginalName(fileName);
             ViewUtils.openView("view/renamePoster.fxml");
         }
 
@@ -391,16 +421,27 @@ public class adminViewController implements Initializable {
         String country = countryText.getText();
         String director = directorText.getText();
         String imagePath = "images/" + imageName;
-        String insertNewMovie = "INSERT INTO movieadmin.movie_repo (" + "movie, genre, release_year, country, director, poster_path) " +
-                "VALUES ('" + name + "','" + genre + "','" + year + "','" + country + "','" + director + "','" + imagePath + "')";
+        String intro = introText.getText();
+        String insertNewMovie = "INSERT INTO movieadmin.movie_repo (" + "name, genre, year, country, director, poster_path, introduction) " +
+                "VALUES ('" + name + "','" + genre + "','" + year + "','" + country + "','" + director + "','" + imagePath + "',\"" + intro + "\")";
         try {
             if(!StringUtil.isEmpty(name) && !StringUtil.isEmpty(genre) &&!StringUtil.isEmpty(year) &&
-                    !StringUtil.isEmpty(country) && !StringUtil.isEmpty(director) && !StringUtil.isEmpty(imagePath)){
+                    !StringUtil.isEmpty(country) && !StringUtil.isEmpty(director) && !StringUtil.isEmpty(imagePath) && !StringUtil.isEmpty(intro)){
                 JdbcUtils jdbcUtils = new JdbcUtils();
                 jdbcUtils.executeQueryStmt(insertNewMovie);
                 savePoster();
+                modelList.loadMovies();
                 addMovieInfo.setText("Adding succeeded!");
                 addMovieInfo.setVisible(true);
+                nameText.clear();
+                genreChoice.setValue(null);
+                yearText.clear();
+                countryText.clear();
+                directorText.clear();
+                introText.clear();
+                movieImage.setImage(null);
+
+
             }else{
                 addMovieInfo.setText("Please fill in all the information and upload a poster image!");
                 addMovieInfo.setVisible(true);

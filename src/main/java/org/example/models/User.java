@@ -16,6 +16,7 @@ public class User {
     private StringProperty address;
     private IntegerProperty password;
 
+
     private Image poster;
 
     public Image getPoster() {

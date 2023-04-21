@@ -11,11 +11,14 @@ public class Movie {
     private StringProperty genre;
     private IntegerProperty year;
     private StringProperty director;
-    private IntegerProperty rating;
+    private StringProperty country;
+    private StringProperty rating;
 
     private StringProperty poster_path;
 
     private StringProperty nameWithYear;
+
+    private StringProperty introduction;
 
     public String getNameWithYear() {
         return nameWithYear.get();
@@ -35,9 +38,23 @@ public class Movie {
         this.genre = new SimpleStringProperty();
         this.year = new SimpleIntegerProperty();
         this.director = new SimpleStringProperty();
-        this.rating = new SimpleIntegerProperty();
+        this.rating = new SimpleStringProperty();
+        this.country = new SimpleStringProperty();
         this.poster_path = new SimpleStringProperty();
         this.nameWithYear = new SimpleStringProperty();
+        this.introduction = new SimpleStringProperty();
+    }
+
+    public String getCountry() {
+        return country.get();
+    }
+
+    public StringProperty countryProperty() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country.set(country);
     }
 
     public String getPoster_path() {
@@ -88,6 +105,18 @@ public class Movie {
         this.genre.set(genre);
     }
 
+    public String getIntroduction() {
+        return introduction.get();
+    }
+
+    public StringProperty introductionProperty() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction.set(introduction);
+    }
+
     public int getYear() {
         return year.get();
     }
@@ -112,15 +141,15 @@ public class Movie {
         this.director.set(director);
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating.get();
     }
 
-    public IntegerProperty ratingProperty() {
+    public StringProperty ratingProperty() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating.set(rating);
     }
 }
