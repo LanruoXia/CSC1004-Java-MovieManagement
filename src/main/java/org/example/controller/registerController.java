@@ -49,6 +49,9 @@ public class registerController  implements Initializable {
     private Button closeButton;
 
 
+    /**
+     * verify the registration conditions
+     */
     public void handleRegister(){
 
         checkUsername();
@@ -74,19 +77,21 @@ public class registerController  implements Initializable {
         ViewUtils.openView("view/login.fxml");
     }
 
+    /**
+     * write information into user database and finish registration
+     */
     public void setAccount() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         Connection dbConn = jdbcUtils.getConnection();
+        //get new user information from the form
         String username = setUsername.getText();
         String age = setAge.getText();
         String gender = genderChoice.getValue();
         String address = setAddress.getText();
         String password = confirmPassword.getText();
 
-//        String insertFields = "INSERT INTO movieadmin.useraccounts (Username, Age, Password) VALUES ('";
-//        String insertValues = username + "','" + age + "','" + password + "')";
-//        String insertNewUser = insertFields + insertValues;
-        String insertNewUser = "INSERT INTO movieadmin.useraccounts (username, password, age, gender, address) VALUES ('" + username + "','" + password + "','" + age + "','" + gender + "','" + address + "')";
+        String insertNewUser = "INSERT INTO movieadmin.useraccounts " + "(username, password, age, gender, address) " +
+                "VALUES ('" + username + "','" + password + "','" + age + "','" + gender + "','" + address + "')";
 
         try {
             jdbcUtils.executeQueryStmt(insertNewUser);
@@ -101,7 +106,9 @@ public class registerController  implements Initializable {
 
 
     }
-
+    /**
+     * check if the username already exists in database
+     */
     public void checkUsername() {
         JdbcUtils jdbcUtils = new JdbcUtils();
         Connection dbConn = jdbcUtils.getConnection();

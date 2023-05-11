@@ -21,7 +21,7 @@ public class Main extends Application{
     public void start(Stage stage) throws Exception {
         Main.stage = stage;
         stage.setTitle("MovieCan");
-
+        //load login page
         changeView("view/login.fxml");
         stage.show();
     }

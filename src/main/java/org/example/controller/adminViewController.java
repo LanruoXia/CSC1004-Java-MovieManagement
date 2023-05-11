@@ -1,10 +1,14 @@
 package org.example.controller;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -170,6 +174,15 @@ public class adminViewController implements Initializable {
 
     @FXML
     private TextArea repoIntroText;
+    @FXML
+    private ScrollPane statsScrollPane;
+
+    @FXML
+    private PieChart agePieChart;
+    @FXML
+    private BarChart<?, ?> ratingBarChart;
+    @FXML
+    private PieChart TypePieChart;
 
     private ModelList modelList = new ModelList();
     @Override
@@ -193,18 +206,33 @@ public class adminViewController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        //load movie table
+        refreshMovieTable();
+        //load plots in statistics page
+        loadAgePieChart();
+        loadRatingBarChart();
+        loadMovieType();
+
+    }
+    /**
+     * initialize or refresh the movie table view
+     */
+    public void refreshMovieTable(){
         //set up the columns of movie repoTableView
         movieIdColumn.setCellValueFactory(new PropertyValueFactory<Movie, Integer>("id"));
         movieNameColumn.setCellValueFactory(new PropertyValueFactory<Movie, String>("nameWithYear"));
         //load data
         modelList.loadMovies();
-        repoTableView.setItems(modelList.getMovieModelList());
+        movies = modelList.getMovieModelList();
+        repoTableView.setItems(movies);
         repoTableView.getSelectionModel().selectFirst();
-
-
-
     }
+    //create lists that contains all objects of movies and users in database
+    private ObservableList<Movie> movies = FXCollections.observableArrayList();
     private ObservableList<User> users = FXCollections.observableArrayList();
+    /**
+     * load all users, set them into objects, and add them into observablelist;
+     */
     public void refreshUserList() throws SQLException {
         ResultSet rs = JdbcUtils.getQueryResult("SELECT * FROM movieadmin.useraccounts");
         users.clear();
@@ -265,6 +293,9 @@ public class adminViewController implements Initializable {
 
     public void loadRepoVBox(){
     }
+    /**
+     * get the selected movie in movie table view and show information of the selected movie
+     */
     @FXML
     public void getItem(javafx.scene.input.MouseEvent mouseEvent) {
         System.out.println("selected");
@@ -278,15 +309,14 @@ public class adminViewController implements Initializable {
                 String movie = selectedMovie.getName();
                 int year = selectedMovie.getYear();
                 String yearString = Integer.toString(year);
-                ResultSet rs = JdbcUtils.getQueryResult("SELECT * FROM movieadmin.movie_repo WHERE name = '"
+                ResultSet rs = JdbcUtils.getQueryResult("SELECT * FROM movieadmin.movie_repo WHERE movie = '"
                         +movie+ "' and year = '" + yearString+ "'");
 //                ResultSet rs = JdbcUtils.getQueryResult("select * from movieadmin.movie_repo");
                 Statement statement = dbConn.createStatement();
                 rs.next();
-                // TODO cannot load the following data right after adding a new movie
                 Image image = new Image(rs.getString("poster_path"));
                 repoImage.setImage(image);
-                repoMovieLabel.setText(rs.getString("name"));
+                repoMovieLabel.setText(rs.getString("movie"));
                 repoIdLabel.setText(rs.getString("idmovies"));
                 repoGenreLabel.setText(rs.getString("genre"));
                 repoYearLabel.setText(rs.getString("year"));
@@ -386,8 +416,7 @@ public class adminViewController implements Initializable {
             fileName = imageFile.getName();
             //savePoster(fileName);
             System.out.println(System.getProperty("user.dir"));
-            popUpWindow pop = new popUpWindow();
-            pop.getOriginalName(fileName);
+            popUpWindow.getOriginalName(fileName);
             ViewUtils.openView("view/renamePoster.fxml");
         }
 
@@ -395,7 +424,6 @@ public class adminViewController implements Initializable {
     }
     public static void getImageName(String name){
         imageName =name;
-
     }
 
     public void savePoster(){
@@ -422,15 +450,14 @@ public class adminViewController implements Initializable {
         String director = directorText.getText();
         String imagePath = "images/" + imageName;
         String intro = introText.getText();
-        String insertNewMovie = "INSERT INTO movieadmin.movie_repo (" + "name, genre, year, country, director, poster_path, introduction) " +
-                "VALUES ('" + name + "','" + genre + "','" + year + "','" + country + "','" + director + "','" + imagePath + "',\"" + intro + "\")";
+        String insertNewMovie = "INSERT INTO movieadmin.movie_repo (movie, genre, year, country, director, poster_path, introduction) VALUES (\"" + name + "\",\"" + genre + "\",\"" + year + "\",\"" + country + "\",\"" + director + "\",\"" + imagePath + "\",\"" + intro + "\")";
         try {
             if(!StringUtil.isEmpty(name) && !StringUtil.isEmpty(genre) &&!StringUtil.isEmpty(year) &&
                     !StringUtil.isEmpty(country) && !StringUtil.isEmpty(director) && !StringUtil.isEmpty(imagePath) && !StringUtil.isEmpty(intro)){
                 JdbcUtils jdbcUtils = new JdbcUtils();
                 jdbcUtils.executeQueryStmt(insertNewMovie);
                 savePoster();
-                modelList.loadMovies();
+                refreshMovieTable();
                 addMovieInfo.setText("Adding succeeded!");
                 addMovieInfo.setVisible(true);
                 nameText.clear();
@@ -465,9 +492,111 @@ public class adminViewController implements Initializable {
         ViewUtils.openView("view/SignOut.fxml");
         popUpWindow.getAdmin((Stage) btnAdmin.getScene().getWindow());
     }
+    public void clickPaneStats(){
+        paneStats.toFront();
+    }
+
+    public void loadAgePieChart(){
+        int group1 = 0;
+        int group2 = 0;
+        int group3 = 0;
+        int group4 = 0;
+        int group5 = 0;
+        int group6 = 0;
+        int group7 = 0;
+        String getAge = "SELECT age FROM movieadmin.useraccounts";
+        try {
+            ResultSet age_rs = JdbcUtils.getQueryResult(getAge);
+            while (age_rs.next()){
+                int age = Integer.parseInt(age_rs.getString(1));
+                if(age < 10){
+                    group1++;
+                }else if(age < 20){
+                    group2++;
+                }else if(age < 30){
+                    group3++;
+                }else if(age < 40){
+                    group4++;
+                }else if(age < 50){
+                    group5++;
+                }else if(age < 60){
+                    group6++;
+                }else {
+                    group7++;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ObservableList<PieChart.Data> agePieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("0-10", group1),
+                new PieChart.Data("10-20", group2),
+                new PieChart.Data("20-30", group3),
+                new PieChart.Data("30-40", group4),
+                new PieChart.Data("40-50", group5),
+                new PieChart.Data("50-60", group6),
+                new PieChart.Data("60 and above", group7));
+
+        agePieChartData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                "age:", data.getName()," ", data.pieValueProperty()
+                        )
+                )
+        );
+        agePieChart.getData().addAll(agePieChartData);
+        agePieChart.setTitle("User Age Distribution");
+    }
+
+    public void loadRatingBarChart(){
+        modelList.loadMovies();
+        ObservableList<Movie> movies = modelList.getMovieModelList();
+        XYChart.Series ratingSeries = new XYChart.Series();
+        for(int i = 0; i < movies.size(); i++){
+            String rating = movies.get(i).getRating();
+            String movieName = movies.get(i).getNameWithYear();
+            double ratingNum = 0.0;
+            if(!rating.equals("No rating yet")){
+                ratingNum = Double.parseDouble(rating);
+            }
+
+            ratingSeries.getData().add(new XYChart.Data(ratingNum, movieName));;
+
+        }
+        ratingBarChart.getData().addAll(ratingSeries);
+
+    }
+    public void loadMovieType(){
+        ObservableList<PieChart.Data> genrePieChartData = FXCollections.observableArrayList();
+        String countGenre = "SELECT genre, COUNT(*) FROM movie_repo GROUP BY genre";
+        try {
+            ResultSet genre_rs = JdbcUtils.getQueryResult(countGenre);
+            while(genre_rs.next()){
+                PieChart.Data data = new PieChart.Data(genre_rs.getString(1), genre_rs.getInt(2));
+                genrePieChartData.add(data);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        TypePieChart.getData().addAll(genrePieChartData);
+        TypePieChart.setTitle("Genre Distribution");
+
+
+
+//        agenrePieChartData.forEach(data ->
+//                data.nameProperty().bind(
+//                        Bindings.concat(
+//                                "age:", data.getName()," ", data.pieValueProperty()
+//                        )
+//                )
+//        );
+
+    }
+
 
 }
 
-
+//"Action", "Drama", "Comedy", "Horror", "Sci-Fi", "Romance", "Fantasy", "Western", "Thriller"
 
 

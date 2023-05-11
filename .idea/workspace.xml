@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605a438-fc3d-46c1-b91b-aa1d93f563f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MyListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/filmCardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/models/ModelList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/filmCard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/userView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/reviewCreatingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Review.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/reviewCard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/reviewCreating.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/popUpWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/popUpWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/registerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/registerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/database/movieAdmin.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/database/movieAdmin.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/ModelList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/ModelList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/adminView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/adminView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/userView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/userView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +31,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="module-info" />
         <option value="Kotlin Class" />
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Interface" />
+        <option value="Tag Library Descriptor" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -45,6 +48,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\A_Coding_Space\CSC1004\CSC1004-Java-MovieManagement\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -57,36 +65,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/A_Coding_Space/CSC1004/CSC1004-Java-MovieManagement",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/A_Coding_Space/CSC1004/demo1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "RunConfigurationTargetLRU": [
-      "80ecd611-ee36-4b31-b1f2-0c89b6c5cd48",
-      "812d866d-05c7-4505-9d2c-41b8130ce237"
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;80ecd611-ee36-4b31-b1f2-0c89b6c5cd48&quot;,
+      &quot;812d866d-05c7-4505-9d2c-41b8130ce237&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\A_Coding_Space\CSC1004\CSC1004-Java-MovieManagement" />
       <recent name="D:\A Coding Space\CSC1004\CSC1004-Java-MovieManagement\src\main\java\org\example\database" />
       <recent name="D:\A Coding Space\CSC1004\CSC1004-Java-MovieManagement\src\main\java\org\example\image" />
     </key>
@@ -145,10 +154,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="movieAdmin.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/src/main/java/org/example/database/movieAdmin.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="812d866d-05c7-4505-9d2c-41b8130ce237" />
+    <configuration name="CSC1004-Java-MovieManagement-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/CSC1004-Java-MovieManagement-1.0-SNAPSHOT-jar-with-dependencies.jar" />
       <method v="2" />
     </configuration>
     <configuration name="CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
@@ -158,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main2" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Database Script.movieAdmin.sql" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+        <item itemvalue="JAR Application.CSC1004-Java-MovieManagement-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +202,11 @@
       <workItem from="1680490875114" duration="11693000" />
       <workItem from="1680531380358" duration="26131000" />
       <workItem from="1680794127786" duration="49131000" />
-      <workItem from="1681873675473" duration="2707000" />
+      <workItem from="1681873675473" duration="9129000" />
+      <workItem from="1682145534830" duration="18420000" />
+      <workItem from="1682217081628" duration="32198000" />
+      <workItem from="1682422194923" duration="38806000" />
+      <workItem from="1683721025127" duration="2305000" />
     </task>
     <task id="LOCAL-00001" summary="Change HelloMaven">
       <created>1676107752962</created>
@@ -302,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680795578886</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add user system&#10;user can browse movies and see the details uploaded by the admin.&#10;the system is dynamic with the movie_repo database">
+      <created>1682077334707</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682077334707</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +353,8 @@
     <MESSAGE value="Added registration function" />
     <MESSAGE value="Added admin system scene&#10;set user information to table view" />
     <MESSAGE value="Set movie repository scene in adminView&#10;added movie_repo database &#10;admin can add new movies, pictures and see the movie information from movie repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set movie repository scene in adminView&#10;added movie_repo database &#10;admin can add new movies, pictures and see the movie information from movie repo" />
+    <MESSAGE value="Add user system&#10;user can browse movies and see the details uploaded by the admin.&#10;the system is dynamic with the movie_repo database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user system&#10;user can browse movies and see the details uploaded by the admin.&#10;the system is dynamic with the movie_repo database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -346,113 +365,87 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/module-info.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>279</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>236</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>238</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>242</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>243</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>274</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>245</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>247</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>277</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>280</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>282</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/utils/JdbcUtils.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
-          <line>283</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/loginController.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="38" />
+          <line>191</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/userViewController.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
+          <line>452</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
+          <line>458</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
+          <line>460</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
+          <line>457</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/adminViewController.java</url>
+          <line>456</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/controller/reviewCardController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="31" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="51" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

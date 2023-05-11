@@ -40,7 +40,9 @@ public class loginController {
     public void initialize() {
 
     }
-
+    /**
+     * check if all login information is complete and correct
+     */
     @FXML
     public void handleLogin() throws InterruptedException {
 //        JdbcUtils jdbcUtils = new JdbcUtils();
@@ -65,7 +67,6 @@ public class loginController {
             JdbcUtils jdbcUtils = new JdbcUtils();
             jdbcUtils.getConnection();
             System.out.println("admin enters");
-            //TODO tackle problem: text won't show
             infoLabel.setText("Welcome, admin");
             infoLabel.setVisible(true);
             TimeUnit.SECONDS.sleep(1);
@@ -80,6 +81,7 @@ public class loginController {
     }
 
     public void verifyLogin() {
+        //check if the user information is in database and verify the combination of username and password
         JdbcUtils jdbcUtils = new JdbcUtils();
         Connection dbConn = jdbcUtils.getConnection();
         String verify = "select count(1) from useraccounts where username = '" + username.getText() + "' and password = '" + password.getText() + "'";
@@ -105,7 +107,7 @@ public class loginController {
 //                    Stage newStage = new Stage();
 //                    newStage.setScene(new Scene(root));
 //                    newStage.show();
-                    userViewController1.setName(username.getText());
+                    userViewController1.setViewInfo(username.getText(), userViewController1);
 
 
                 } else {
@@ -120,7 +122,9 @@ public class loginController {
         }
 
     }
-
+    /**
+     * close current window
+     */
     @FXML
     public void handleCancel() {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
@@ -128,6 +132,7 @@ public class loginController {
     }
 
     public void creatRegistration() {
+        //load registration page
         handleCancel();
         ViewUtils.openView("view/register.fxml");
 
@@ -135,6 +140,7 @@ public class loginController {
 
     public void enterAdminView(){
         handleCancel();
+        //load admin system view
         ViewUtils.openView("view/adminView.fxml");
         adminViewController adminView = new adminViewController();// What's wrong?
     }

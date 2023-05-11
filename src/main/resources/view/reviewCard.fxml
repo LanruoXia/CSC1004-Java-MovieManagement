@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="260.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.reviewCardController">
+   <children>
+      <HBox prefHeight="0.0" prefWidth="551.0">
+         <children>
+            <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image></ImageView>
+            <Label fx:id="userLabel" prefHeight="31.0" prefWidth="295.0" text="Username" />
+         </children>
+      </HBox>
+      <HBox prefHeight="32.0" prefWidth="551.0" spacing="10.0" styleClass="white_background" stylesheets="@../css/Style.css">
+         <children>
+            <HBox prefHeight="43.0" prefWidth="93.0">
+               <children>
+                  <ImageView fitHeight="47.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/star.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="ratingLabel" prefHeight="32.0" prefWidth="21.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></Label>
+                  <Label prefHeight="34.0" prefWidth="32.0" text="/10" />
+               </children>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </HBox>
+            <Label fx:id="headlineText" prefHeight="41.0" prefWidth="193.0" text="Love this movie!">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+         </children>
+      </HBox>
+      <TextArea fx:id="commentText" prefHeight="123.0" prefWidth="551.0" />
+      <ScrollPane prefHeight="66.0" prefWidth="551.0" styleClass="white_background" stylesheets="@../css/Style.css">
+         <content>
+            <ImageView fx:id="commentImage" fitHeight="93.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

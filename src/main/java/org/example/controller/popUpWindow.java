@@ -63,6 +63,7 @@ public class popUpWindow {
         System.out.println(imageFormat.getText());
         System.out.println(imageText.getText());
         adminViewController.getImageName(name);
+        reviewCreatingController.getImageName(name);
         System.out.println(name);
         closeRename();
 
